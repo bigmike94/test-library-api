@@ -22,26 +22,24 @@ class AuthorApiController extends Controller
         {
             return Helper::msg(false, "No author, nor book was found", 404);
         }
-        if(!$author&&$book)
-        {
-            $result = Book::where('name', 'like', '%'.$book.'%')->with(array('authors' => function($query){
+        else {
+            switch (true) {
+                case !$author&&$book:
+                    $result = Book::where('name', 'like', '%'.$book.'%')->with(array('authors' => function($query){
                     $query->select('name');}))->get();
+                    return Helper::msg(true, $result, 200);
 
-            return Helper::msg(true, $result, 200);
-        }
-        else if($author&&!$book)
-        {
-            $result = $author->books()->with(array('authors' => function($query){
+                case $author&&!$book:
+                    $result = $author->books()->with(array('authors' => function($query){
                     $query->select('name');}))->get();
+                    return Helper::msg(true, $result, 200);
 
-            return Helper::msg(true, $result, 200);
-        }
-        else 
-        {
-            $result = $author->books()->where('name', 'like', '%'.$request->input("book_name").'%')->with(array('authors' => function($query){
+                default:
+                    $result = $author->books()->where('name', 'like', '%'.$book.'%')->with(array('authors' => function($query){
                     $query->select('name');}))->get();
-
-            return Helper::msg(true, $result, 200);
+                    return Helper::msg(true, $result, 200);
+                break;
+            }
         }
     }
 }
