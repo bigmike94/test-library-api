@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer("year");
-            $table->boolean("reserved");
+            $table->boolean("reserved")->default(0);
         });
     }
 

@@ -62,5 +62,5 @@
     "prefer-stable": true,
     "files": [
         "app/Helpers/helpers.php"
-    ],
+    ]
 }
