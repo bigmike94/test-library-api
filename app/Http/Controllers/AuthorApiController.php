@@ -18,9 +18,9 @@ class AuthorApiController extends Controller
         $author = Author::find($request->input("author_id"));
         $book = $request->input("book_name");
 
-        if($author===null)
+        if(!$author&&!$book)
         {
-            return Helper::msg(false, "Author not found", 404);
+            return Helper::msg(false, "No author, nor book was found", 404);
         }
         if(!$author&&$book)
         {
@@ -33,11 +33,14 @@ class AuthorApiController extends Controller
         {
             $result = $author->books()->with(array('authors' => function($query){
                     $query->select('name');}))->get();
+
             return Helper::msg(true, $result, 200);
         }
         else 
         {
-            $result = $author->books()->where('name', 'like', '%'.$request->input("book_name").'%')->get();
+            $result = $author->books()->where('name', 'like', '%'.$request->input("book_name").'%')->with(array('authors' => function($query){
+                    $query->select('name');}))->get();
+
             return Helper::msg(true, $result, 200);
         }
     }
