@@ -5,7 +5,7 @@
 <p><b>GET&nbsp;&nbsp;&nbsp;/api/authors</b> - get authors list</p>
 <p>
     <b>POST&nbsp;&nbsp;&nbsp;/api/books</b> - store new book. 
-    <br><u>Body parameteres example:</u>
+    Body parameteres example:
     <span>{"name": "example book", "year": "2000", "authors_id": [1, 2, 3]}</span>
     <span>Book has columns: name, year, reserved</span>
 </p>
