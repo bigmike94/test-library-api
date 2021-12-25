@@ -10,6 +10,6 @@
     <span>Book has columns: name, year, reserved</span>
 </p>
 <p>DELETE http://example.domain.com/api/books/:id - delete book with all it's relationships</p>
-<p>PUT/PATCH http://example.domain.com/api/books/:id - update book<b>Body parameteres example:</b> <span>{"reserved": "1"}</span></p>
+<p>PUT/PATCH http://example.domain.com/api/books/:id - update book<br><b>Body parameters example:</b> <span>{"reserved": "1"}</span></p>
 <p>GET http://example.domain.com/api/books/?author_id=:author_id&book_name=book_name - Search specific author's book (Works with MYSQL Like operator on book name)</p>
 <p>GET http://example.domain.com/api/books/?book_name=book_name - Search book (Works with MYSQL Like operator)</p>
