@@ -6,7 +6,7 @@
 <p>
     <b>POST&nbsp;&nbsp;&nbsp;/api/books</b> - store new book. 
     Body parameteres example:
-    <span>{"name": "example book", "year": "2000", "authors_id": [1, 2, 3]}</span>
+    <span>{"name": "example book", "year": "2000", "authors_id": [1, 2, 3]}.</span>
     <span>Book has columns: name, year, reserved</span>
 </p>
 <p><b>DELETE&nbsp;&nbsp;&nbsp;/api/books/:id</b> - delete book with all it's relationships</p>
